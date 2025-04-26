@@ -1,92 +1,57 @@
 import React, { useEffect, useRef } from 'react';
-import './Example.css';
+import './Example.css'; // 同じフォルダにCSSファイルを作成してください
 
 function Example() {
+  // このrefを使って、コンポーネント内のDOM要素にアクセスします
   const containerRef = useRef(null);
   
   useEffect(() => {
+    // ↓↓↓ ここからJavaScriptコードを書いてね ↓↓↓
+    
+    // 呪文（containerRef.currentを使ってコンポーネント内の要素にアクセス）
     if (containerRef.current) {
-      // キャンセルのサンプルデータ
-      const cancels = [
-        { id: 1, title: "英語の授業", date: "2025-05-05", category: "lecture" },
-        { id: 2, title: "友達との食事会", date: "2025-05-10", category: "daily" },
-        { id: 3, title: "レポート提出", date: "2025-05-15", category: "task" }
-      ];
-      
-      // カウンター機能
-      let count = 0;
-      const counterDisplay = containerRef.current.querySelector('#counter-display');
-      const incrementButton = containerRef.current.querySelector('#increment-button');
-      
-      if (incrementButton && counterDisplay) {
-        incrementButton.addEventListener('click', () => {
-          count++;
-          counterDisplay.textContent = count;
+      // 例: ボタンにイベントリスナーを追加
+      const button = containerRef.current.querySelector('#my-button');
+      if (button) {
+        button.addEventListener('click', () => {
+          alert('ボタンがクリックされました！');
         });
       }
       
-      // キャンセルリストの表示
-      const cancelsList = containerRef.current.querySelector('#cancels-list');
-      if (cancelsList) {
-        // リストを空にする
-        cancelsList.innerHTML = '';
-        
-        // キャンセルリストを表示
-        cancels.forEach(cancel => {
-          const item = document.createElement('div');
-          item.className = 'cancel-item';
-          
-          // カテゴリーに応じた色を設定
-          let categoryColor = '#6c757d';
-          if (cancel.category === 'lecture') categoryColor = '#dc3545';
-          if (cancel.category === 'daily') categoryColor = '#28a745';
-          if (cancel.category === 'task') categoryColor = '#fd7e14';
-          
-          item.innerHTML = `
-            <div class="cancel-info">
-              <h3>${cancel.title}</h3>
-              <p class="cancel-date">${cancel.date}</p>
-            </div>
-            <span class="cancel-category" style="background-color: ${categoryColor}">
-              ${cancel.category}
-            </span>
-          `;
-          
-          cancelsList.appendChild(item);
-        });
+      // 例: データを表示
+      const dataElement = containerRef.current.querySelector('#data-display');
+      if (dataElement) {
+        dataElement.textContent = '更新されたデータ';
       }
       
-      // 追加ボタンのイベント
-      const addButton = containerRef.current.querySelector('#add-button');
-      if (addButton) {
-        addButton.addEventListener('click', () => {
-          alert('新規キャンセルを追加します');
-        });
-      }
+      // その他のDOM操作やイベント処理を書く
     }
-  }, []);
+    
+    // ↑↑↑ ここまでJavaScriptコードを書いてください ↑↑↑
+    
+    // コンポーネントがアンマウントされるときのクリーンアップ
+    return () => {
+      // 必要に応じてイベントリスナーを削除するなどのクリーンアップを書く
+    };
+  }, []); // 空の配列を渡すと、コンポーネントのマウント時に1回だけ実行されます
 
   return (
-    <div ref={containerRef} className="example-container">
-      <h1>サンプルページ</h1>
-      <p className="intro-text">
-        このページはテンプレートを使用して作成されました。
-        HTML、CSS、JavaScriptの基本を学びながらReactの開発をすることができます。
+    <div ref={containerRef} className="template-container">
+      {/* ↓↓↓ ここからHTMLを書き始めてください ↓↓↓ */}
+      
+      <h1>テンプレートコンポーネント</h1>
+      <p className="description">
+        このテンプレートを編集して独自のコンポーネントを作成できます。
+        ※ HTMLのclassの代わりにclassNameを使ってください。
       </p>
       
-      <div className="example-box">
-        <h2>カウンター</h2>
-        <p>現在のカウント: <span id="counter-display">0</span></p>
-        <button id="increment-button" className="example-button">増やす</button>
+      <div className="content-box">
+        <h2>コンテンツボックス</h2>
+        <p id="data-display">ここにデータが表示されます</p>
+        <button id="my-button" className="action-button">ボタン</button>
       </div>
       
-      <div className="example-box">
-        <h2>キャンセル一覧</h2>
-        <div id="cancels-list" className="cancels-list">
-          <p className="empty-message">表示するキャンセルがありません</p>
-        </div>
-        <button id="add-button" className="example-button">新規追加</button>
-      </div>
+      {/* ↑↑↑ ここまでHTMLを書いてください ↑↑↑ */}
     </div>
   );
 }
