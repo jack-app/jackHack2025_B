@@ -2,7 +2,7 @@
 
 ## リンク集
 
-- [デプロイしたページ](https://jack-app.github.io/example)
+- [デプロイしたページ](https://jack-app.github.io/jackHack2025_B/)
 - [★新入生のみんなへ★](https://github.com/jack-app/jackHack2025_B/blob/main/ADVICE.md)
 - [アイデア出し - MIRO](https://miro.com/app/board/uXjVI9w6h6U=/)
 - [Notion](https://www.notion.so/jackHack2025_team_b-1e1f301ff17580bfafd6ebf53a8ddf4d?pvs=4)
