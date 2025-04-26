@@ -9,6 +9,7 @@
 - 通常のReactではJSXという特殊な記法を使いますが、このプロジェクトでは新入生は従来のHTML/CSS/JSの書き方で開発できます
 - `TemplateComponent.jsx`をコピーするだけで新しいページが作れる
 - 明確に「HTMLを書く場所」と「JavaScriptを書く場所」が分かれている
+- CSSはページごとにインポートする
 
 ```
 📁 src/components/
@@ -49,6 +50,7 @@ npm start
 ### 2. HTMLとJavaScriptの書き方
 
 - **HTML**: コンポーネント内の「ここからHTMLを書き始めてください」の部分を編集
+
   ```jsx
   return (
     
@@ -61,6 +63,7 @@ npm start
   ```
 
 - **JavaScript**: useEffect内の指定場所にコードを書く
+
   ```jsx
   useEffect(() => {
     // ↓↓↓ ここからJavaScriptコードを書き始めてください ↓↓↓
