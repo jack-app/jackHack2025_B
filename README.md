@@ -1,70 +1,185 @@
-# Getting Started with Create React App
+# キャンセル - Jack Hack 2025
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📋 プロジェクト構成 - 特徴
 
-## Available Scripts
+このプロジェクトの特殊な点は、「新入生がHTML/CSS/JavaScriptの基本だけで開発に参加できる」ように設計されています。
 
-In the project directory, you can run:
+### 仕組み
 
-### `npm start`
+- 通常のReactではJSXという特殊な記法を使いますが、このプロジェクトでは新入生は従来のHTML/CSS/JSの書き方で開発できます
+- `TemplateComponent.jsx`をコピーするだけで新しいページが作れる
+- 明確に「HTMLを書く場所」と「JavaScriptを書く場所」が分かれている
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+📁 src/components/
+  ├── TemplateComponent.jsx  👈 これをコピーして新ページを作成 (HTML / Javascript)
+  ├── TemplateComponent.css  👈 スタイル用 (CSS)
+  └── pages/                 👈 作成したページはここに保存 
+      ├── Example.jsx        👈 今はサンプル（/example）
+      └── Example.css
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🔧 環境構築方法
 
-### `npm test`
+### 開発を始める
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+# リポジトリのクローン
+git clone [リポジトリURL]
+cd cancel-app
 
-### `npm run build`
+# 必要なパッケージをインストール
+npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# 開発サーバーを起動
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+これだけで開発環境の準備は完了です！
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🎓 新入生への指導方法
 
-### `npm run eject`
+### 1. 新しいページの作り方
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. `src/components/TemplateComponent.jsx`と`src/components/TemplateComponent..css`をコピー
+2. `src/components/pages/`の中に新しい名前でそれぞれ保存（例：`HogePage.jsx`）
+3. ファイル内の「コンポーネント名」を変更（例：`function HogePage() {`）
+4. CSSのインポートパスを修正（例：`import './HogePage.css';`）
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2. HTMLとJavaScriptの書き方
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **HTML**: コンポーネント内の「ここからHTMLを書き始めてください」の部分を編集
+  ```jsx
+  return (
+    
+      {/* ↓↓↓ ここからHTMLを書き始めてください ↓↓↓ */}
+      ページタイトル
+      コンテンツ...
+      {/* ↑↑↑ ここまでHTMLを書いてください ↑↑↑ */}
+    
+  );
+  ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **JavaScript**: useEffect内の指定場所にコードを書く
+  ```jsx
+  useEffect(() => {
+    // ↓↓↓ ここからJavaScriptコードを書き始めてください ↓↓↓
+    
+    if (containerRef.current) {
+      const button = containerRef.current.querySelector('#my-button');
+      if (button) {
+        button.addEventListener('click', () => {
+          alert('ボタンがクリックされました');
+        });
+      }
+    }
+    
+    // ↑↑↑ ここまでJavaScriptコードを書いてください ↑↑↑
+  }, []);
+  ```
 
-## Learn More
+### 3. 注意点
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- HTMLでは`class`ではなく`className`を使う
+- DOM要素の取得は`document.getElementById`ではなく`containerRef.current.querySelector`を使う
+- コードの変更は保存すると自動的にブラウザに反映される
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🔥 はまおさんへ：Firebaseの導入方法
 
-### Code Splitting
+### 1. 初期設定
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+# Firebaseパッケージをインストール
+npm install firebase
+```
 
-### Analyzing the Bundle Size
+### 2. 設定ファイルの作成
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+`src/firebase/firebase-config.js`を作成して以下のコードを追加：
 
-### Making a Progressive Web App
+```javascript
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+// Firebaseの設定情報
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT",
+  storageBucket: "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "YOUR_MESSAGING_ID",
+  appId: "YOUR_APP_ID"
+};
 
-### Advanced Configuration
+// Firebaseの初期化
+const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
+export const auth = getAuth(app);
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 3. データの保存と取得の例
 
-### Deployment
+```javascript
+import { collection, addDoc, getDocs } from "firebase/firestore";
+import { db } from "../firebase/firebase-config";
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+// データを保存する関数
+async function saveCancel(cancelData) {
+  try {
+    const docRef = await addDoc(collection(db, "cancels"), cancelData);
+    console.log("保存成功:", docRef.id);
+    return docRef.id;
+  } catch (error) {
+    console.error("保存エラー:", error);
+    return null;
+  }
+}
 
-### `npm run build` fails to minify
+// データを取得する関数
+async function getCancels() {
+  const cancelsSnapshot = await getDocs(collection(db, "cancels"));
+  const cancelsList = [];
+  cancelsSnapshot.forEach((doc) => {
+    cancelsList.push({ id: doc.id, ...doc.data() });
+  });
+  return cancelsList;
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📦 アプリのデプロイ方法
+
+GitHub Pagesを使って簡単にデプロイできます：
+
+### 1. 準備
+
+```bash
+# gh-pagesパッケージのインストール
+npm install --save-dev gh-pages
+```
+
+### 2. package.jsonの編集
+
+```json
+{
+  "homepage": "https://jack-app.github.io/jackHack2025_B",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    // 他のスクリプト...
+  }
+}
+```
+
+### 3. デプロイ実行
+
+```bash
+npm run deploy
+```
+
+これだけでアプリが公開されます。URLは`https://jack-app.github.io/jackHack2025_B/`です。
+デプロイは慎重にやりましょう。
+
+---
+
+頑張ろう❤️‍🔥
