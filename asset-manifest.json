@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/jackHack2025_B/static/css/main.f855e6bc.css",
-    "main.js": "/jackHack2025_B/static/js/main.808a6bf7.js",
+    "main.css": "/jackHack2025_B/static/css/main.07327963.css",
+    "main.js": "/jackHack2025_B/static/js/main.1bc31ab7.js",
     "static/js/453.514e6921.chunk.js": "/jackHack2025_B/static/js/453.514e6921.chunk.js",
-    "static/media/logo.svg": "/jackHack2025_B/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/jackHack2025_B/index.html",
-    "main.f855e6bc.css.map": "/jackHack2025_B/static/css/main.f855e6bc.css.map",
-    "main.808a6bf7.js.map": "/jackHack2025_B/static/js/main.808a6bf7.js.map",
+    "main.07327963.css.map": "/jackHack2025_B/static/css/main.07327963.css.map",
+    "main.1bc31ab7.js.map": "/jackHack2025_B/static/js/main.1bc31ab7.js.map",
     "453.514e6921.chunk.js.map": "/jackHack2025_B/static/js/453.514e6921.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.808a6bf7.js"
+    "static/css/main.07327963.css",
+    "static/js/main.1bc31ab7.js"
   ]
 }
