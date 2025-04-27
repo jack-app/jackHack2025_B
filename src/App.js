@@ -1,23 +1,14 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import './App.css';
-import Example from './components/pages/Example';
+import React from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import "./App.css";
+import Header from "./components/Header/Header";
+import Example from "./components/pages/Example";
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
-          <h1>キャンセルアプリ</h1>
-          <nav>
-            <ul className="nav-links">
-              {/* <li><Link to="/">ホーム</Link></li>
-              <li><Link to="/cancel-list">キャンセル一覧</Link></li>
-              <li><Link to="/add-cancel">新規追加</Link></li> */}
-              <li><Link to="/example">サンプル</Link></li>
-            </ul>
-          </nav>
-        </header>
+        <Header />
 
         <main className="App-main">
           <Routes>
