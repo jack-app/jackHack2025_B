@@ -2,10 +2,10 @@
 
 ## 🤔 仕組みを超簡単に説明
 
-このアプリは「*React*」という技術を使っていますが、難しく考えなくてOK！
+このアプリは「_React_」という技術を使っていますが、難しく考えなくてOK！
 
 - 普通のWebサイトと同じようにHTML/CSS/JavaScriptを書けるようになっています
-- `TemplateComponent.jsx`というファイルをコピーして、その中の指定された場所に書くだけ！
+- `Template.jsx`というファイルをコピーして、その中の指定された場所に書くだけ！
 - 見た目はCSSで、動きはJavaScriptで、いつものWebサイト作りと同じです
 
 ## 🚀 1年生がやることは？
@@ -15,32 +15,32 @@
 先輩が環境構築を手伝ってくれるので、心配いりません。基本的には以下のコマンドで準備完了です。
 
 ```txt
-npm install  （必要なソフトを入れる）
-npm start    （開発用サーバーを起動）
+npm install    （必要なソフトを入れる）
+npm run dev    （開発用サーバーを起動）
 ```
 
 [localhost://3000](http://localhost:3000)からページが見れるようになります。
 
 ### 2. 新しいページを作る
 
-1. `src/components/TemplateComponent.jsx`と`src/components/TemplateComponent.css`をコピー
-2. `src/components/pages/`フォルダに新しい名前で保存（例：`MyCancelPage.jsx`）
+1. `src/pages/Template.jsx`と`src/pages/Template.module.css`をコピー
+2. `src/pages/`フォルダに新しい名前で保存（例：`MyCancelPage.jsx`）
 3. ファイルを開いて「コンポーネント名」を変更（例：`function MyCancelPage() {`）
-4. CSSファイルのインポート名も適切に変更する（例：`import './MyCancelPage.css';`）
+4. CSSファイルのインポート名も適切に変更する（例：`import styles from './MyCancelPage.module.css';`）
 
 ### 3. HTMLを書く
 
 ```jsx
 return (
-  
+
     {/* ↓↓↓ ここに普通のHTMLを書く ↓↓↓ */}
     私のキャンセル一覧
-    
+
       ここに内容を書きます
       ボタン
-    
+
     {/* ↑↑↑ ここまで ↑↑↑ */}
-  
+
 );
 ```
 
@@ -51,15 +51,15 @@ return (
 ```jsx
 useEffect(() => {
   // ↓↓↓ ここに普通のJavaScriptを書く ↓↓↓
-  
+
   // ボタンを取得して、クリックしたらアラートを表示する
-  const button = containerRef.current.querySelector('#my-button');
+  const button = containerRef.current.querySelector("#my-button");
   if (button) {
-    button.addEventListener('click', () => {
-      alert('ボタンがクリックされました！');
+    button.addEventListener("click", () => {
+      alert("ボタンがクリックされました！");
     });
   }
-  
+
   // ↑↑↑ ここまで ↑↑↑
 }, []);
 ```
@@ -124,7 +124,7 @@ button {
    ```jsx
    // ❌ const name = "山田"
    // ⭕ const name = "山田";
-   
+
    // ❌ const user = { name: "山田" age: 20 }
    // ⭕ const user = { name: "山田", age: 20 };
    ```
@@ -132,11 +132,11 @@ button {
 3. **かっこの対応ミス**: 開いたかっこは必ず閉じる必要があります
 
    ```jsx
-   // ❌ if (button) { 
+   // ❌ if (button) {
    //      console.log("ボタンあります");
    //    // 閉じかっこがない！
-   
-   // ⭕ if (button) { 
+
+   // ⭕ if (button) {
    //      console.log("ボタンあります");
    //    }
    ```

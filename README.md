@@ -7,7 +7,6 @@
 - [アイデア出し - MIRO](https://miro.com/app/board/uXjVI9w6h6U=/)
 - [Notion](https://www.notion.so/jackHack2025_team_b-1e1f301ff17580bfafd6ebf53a8ddf4d?pvs=4)
 
-
 ## 📋 プロジェクト構成 - 特徴
 
 このプロジェクトの特殊な点は、「新入生がHTML/CSS/JavaScriptの基本だけで開発に参加できる」ように設計されています。
@@ -23,7 +22,7 @@
 📁 src/components/
   ├── TemplateComponent.jsx  👈 これをコピーして新ページを作成 (HTML / Javascript)
   ├── TemplateComponent.css  👈 スタイル用 (CSS)
-  └── pages/                 👈 作成したページはここに保存 
+  └── pages/                 👈 作成したページはここに保存
       ├── Example.jsx        👈 今はサンプル（/example）
       └── Example.css
 ```
@@ -41,7 +40,7 @@ cd cancel-app
 npm install
 
 # 開発サーバーを起動
-npm start
+npm run dev
 ```
 
 これだけで開発環境の準備は完了です！
@@ -61,12 +60,12 @@ npm start
 
   ```jsx
   return (
-    
+
       {/* ↓↓↓ ここからHTMLを書き始めてください ↓↓↓ */}
       ページタイトル
       コンテンツ...
       {/* ↑↑↑ ここまでHTMLを書いてください ↑↑↑ */}
-    
+
   );
   ```
 
@@ -75,16 +74,16 @@ npm start
   ```jsx
   useEffect(() => {
     // ↓↓↓ ここからJavaScriptコードを書き始めてください ↓↓↓
-    
+
     if (containerRef.current) {
-      const button = containerRef.current.querySelector('#my-button');
+      const button = containerRef.current.querySelector("#my-button");
       if (button) {
-        button.addEventListener('click', () => {
-          alert('ボタンがクリックされました');
+        button.addEventListener("click", () => {
+          alert("ボタンがクリックされました");
         });
       }
     }
-    
+
     // ↑↑↑ ここまでJavaScriptコードを書いてください ↑↑↑
   }, []);
   ```
@@ -120,7 +119,7 @@ const firebaseConfig = {
   projectId: "YOUR_PROJECT",
   storageBucket: "YOUR_PROJECT.appspot.com",
   messagingSenderId: "YOUR_MESSAGING_ID",
-  appId: "YOUR_APP_ID"
+  appId: "YOUR_APP_ID",
 };
 
 // Firebaseの初期化
@@ -176,7 +175,7 @@ npm install --save-dev gh-pages
   "homepage": "https://jack-app.github.io/jackHack2025_B",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist"
     // 他のスクリプト...
   }
 }
@@ -185,6 +184,7 @@ npm install --save-dev gh-pages
 ### 3. デプロイ実行
 
 ```bash
+npm run build
 npm run deploy
 ```
 
