@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import "./Example.css"; // 同じフォルダにCSSファイルを作成してください
+import styles from "./Example.module.css"; // 同じフォルダにCSSファイルを作成してください
 
 const Example = () => {
   // このrefを使って、コンポーネント内のDOM要素にアクセスします
@@ -36,19 +36,19 @@ const Example = () => {
   }, []); // 空の配列を渡すと、コンポーネントのマウント時に1回だけ実行されます
 
   return (
-    <div ref={containerRef} className="template-container">
+    <div ref={containerRef} className={styles["template-container"]}>
       {/* ↓↓↓ ここからHTMLを書き始めてください ↓↓↓ */}
 
       <h1>テンプレートコンポーネント</h1>
-      <p className="description">
+      <p className={styles["description"]}>
         このテンプレートを編集して独自のコンポーネントを作成できます。 ※
         HTMLのclassの代わりにclassNameを使ってください。
       </p>
 
-      <div className="content-box">
+      <div className={styles["content-box"]}>
         <h2>コンテンツボックス</h2>
         <p id="data-display">ここにデータが表示されます</p>
-        <button id="my-button" className="action-button">
+        <button id="my-button" className={styles["action-button"]}>
           ボタン
         </button>
       </div>
