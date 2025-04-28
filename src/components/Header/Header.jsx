@@ -1,24 +1,10 @@
-import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
-import { auth } from "../../firebase/firebase-config";
+import { useAuthContext } from "../../context/auth/AuthContext";
+import { login, logout } from "../../firebase/auth";
 import styles from "./Header.module.css";
 
-const login = () => {
-  const GoogleProvider = new GoogleAuthProvider();
-  signInWithPopup(auth, GoogleProvider).catch((error) => {
-    console.error("Error during sign-in:", error);
-  });
-};
-
-const logout = () => {
-  signOut(auth).catch((error) => {
-    console.error("Error during sign-out:", error);
-  });
-};
-
 const Header = () => {
-  const [user] = useAuthState(auth);
+  const { user } = useAuthContext();
 
   return (
     <header className="App-header">
