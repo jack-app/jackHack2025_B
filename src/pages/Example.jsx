@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./Example.module.css"; // 同じフォルダにCSSファイルを作成してください
+import Hello from "../components/Hello";
 
 const Example = () => {
   // このrefを使って、コンポーネント内のDOM要素にアクセスします
@@ -53,6 +54,7 @@ const Example = () => {
         </button>
       </div>
 
+      <Hello name={"jackHack"} />
       {/* ↑↑↑ ここまでHTMLを書いてください ↑↑↑ */}
     </div>
   );
