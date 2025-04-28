@@ -1,11 +1,11 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import './App.css';
-import Example from './components/pages/Example';
+import React from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import "./App.css";
+import Example from "./pages/Example";
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter basename="/jackHack2025_B">
       <div className="App">
         <header className="App-header">
           <h1>キャンセルアプリ</h1>
@@ -14,7 +14,9 @@ function App() {
               {/* <li><Link to="/">ホーム</Link></li>
               <li><Link to="/cancel-list">キャンセル一覧</Link></li>
               <li><Link to="/add-cancel">新規追加</Link></li> */}
-              <li><Link to="/example">サンプル</Link></li>
+              <li>
+                <Link to="/example">サンプル</Link>
+              </li>
             </ul>
           </nav>
         </header>
@@ -32,7 +34,7 @@ function App() {
           <p>Jack Hack 2025 - キャンセルアプリ</p>
         </footer>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 

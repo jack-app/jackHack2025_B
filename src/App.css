@@ -2,6 +2,16 @@
   font-family: sans-serif;
 }
 
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #444;
+  margin-top: 0;
+}
+
 nav ul {
   display: flex;
   list-style: none;
