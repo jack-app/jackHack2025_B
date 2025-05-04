@@ -4,6 +4,7 @@ import "./App.css";
 import Example from "./pages/Example";
 import AuthProvider from "./context/auth/AuthContext";
 import Header from "./components/Header";
+import CancelList from "./pages/CancelList";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/cancel-list" element={<div>キャンセル一覧（作成予定）</div>} />
             <Route path="/add-cancel" element={<div>新規追加（作成予定）</div>} /> */}
               <Route path="/example" element={<Example />} />
+              <Route path="/cancel-list" element={<CancelList />} />
             </Routes>
           </main>
 
