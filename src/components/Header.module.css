@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+.logo{
+  height: 90px;
+
+}
+.title{font-family: jura,sans-serif;}
