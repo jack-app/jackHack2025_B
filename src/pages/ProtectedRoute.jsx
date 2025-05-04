@@ -2,6 +2,7 @@ import { Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../context/auth/AuthContext";
 import { logout } from "../firebase/auth";
+import CancelList from "./CancelList";
 
 const ProtectedRoute = () => {
   const { user } = useAuthContext();
@@ -26,8 +27,10 @@ const ProtectedRoute = () => {
     <>
       {user ? (
         <div>
-          <div>{user.displayName}でログインしてるよ</div>
-          <button onClick={logout}>ログアウト</button>
+          <CancelList />
+          <button onClick={logout} style={{ marginTop: "20px" }}>
+            ログアウト
+          </button>
         </div>
       ) : (
         <Navigate to="/signin" replace>

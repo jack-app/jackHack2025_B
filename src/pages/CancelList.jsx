@@ -45,7 +45,7 @@ const CancelList = () => {
         </div>
         <button id="plus-button-id" className={styles["plus-button"]}>+</button>
       </div>
-      
+
 
         {/* ↑↑↑ここまでHTML↑↑↑ */}
     </div>
