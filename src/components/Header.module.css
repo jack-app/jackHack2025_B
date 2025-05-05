@@ -3,29 +3,36 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  height: 100%;
 }
 .logo {
   height: 90px;
 }
 
-.title{font-family: jura,sans-serif;}
-@media screen and (max-width: 400px) {
+.title {
+  font-family: jura, sans-serif;
+}
+@media screen and (max-width: 720px) {
+  .logo {
+    width: 120px;
+    height: auto;
+  }
+}
+@media screen and (max-width: 480px) {
   .header-content {
     width: 100%;
     height: auto;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
     display: flex;
   }
   .logo {
     width: 90px;
     height: auto;
-    position: relative;
-    top: 17px;
   }
   .title {
     display: none;
-    font-family: jura, sans-serif;
   }
 }
-
