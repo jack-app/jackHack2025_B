@@ -35,87 +35,92 @@ const Modal = ({ isOpen, close }) => {
   }
 
   return (
-    <div className={styles["modal_wrap"]}>
-      <div className={styles["set_info"]}>
-        <div className={styles["date_area"]}>
-          <div className={styles["date"]}>
-            {dateValue.toISOString().split("T")[0]}
-          </div>
-          <input
-            type="date"
-            id="date"
-            className={styles["date_btn"]}
-            onChange={(e) => setDateValue(new Date(e.target.value))}
-          />
-        </div>
-        <div className={styles["tag_area"]}>
-          <div className={styles["tag"]}>{tagValue}</div>
-          <input
-            type="button"
-            className={styles["tag_btn"]}
-            value="+"
-            onClick={() => setShowTag(!showTag)}
-          />
-          {showTag && (
-            <div className={styles["tag_list"]}>
-              {tagOptions.map((tag, index) => (
-                <div
-                  key={index}
-                  className={styles["tag_option"]}
-                  onClick={() => handleTagSelect(tag)}
-                >
-                  {tag}
-                </div>
-              ))}
-              <input
-                type="text"
-                className={styles["custom_tag"]}
-                value={customTagValue}
-                placeholder="カスタム"
-                onChange={(e) => setCustomTagValue(e.target.value)}
-                onKeyDown={(e) => handleKeyDown(e, customTagValue)}
-              />
+    <div className={styles["modal-overlay"]} onClick={close}>
+      <div
+        className={styles["modal_wrap"]}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className={styles["set_info"]}>
+          <div className={styles["date_area"]}>
+            <div className={styles["date"]}>
+              {dateValue.toISOString().split("T")[0]}
             </div>
-          )}
+            <input
+              type="date"
+              id="date"
+              className={styles["date_btn"]}
+              onChange={(e) => setDateValue(new Date(e.target.value))}
+            />
+          </div>
+          <div className={styles["tag_area"]}>
+            <div className={styles["tag"]}>{tagValue}</div>
+            <input
+              type="button"
+              className={styles["tag_btn"]}
+              value="+"
+              onClick={() => setShowTag(!showTag)}
+            />
+            {showTag && (
+              <div className={styles["tag_list"]}>
+                {tagOptions.map((tag, index) => (
+                  <div
+                    key={index}
+                    className={styles["tag_option"]}
+                    onClick={() => handleTagSelect(tag)}
+                  >
+                    {tag}
+                  </div>
+                ))}
+                <input
+                  type="text"
+                  className={styles["custom_tag"]}
+                  value={customTagValue}
+                  placeholder="カスタム"
+                  onChange={(e) => setCustomTagValue(e.target.value)}
+                  onKeyDown={(e) => handleKeyDown(e, customTagValue)}
+                />
+              </div>
+            )}
+          </div>
         </div>
-      </div>
-      <div className={styles["title_area"]}>
-        <div className={styles["title"]}>タイトル</div>
+        <div className={styles["title_area"]}>
+          <div className={styles["title"]}>タイトル</div>
+          <input
+            type="text"
+            className={styles["title_text"]}
+            value={titleValue}
+            onChange={(e) => setTitleValue(e.target.value)}
+          />
+        </div>
+        <div className={styles["memo_area"]}>
+          <div className={styles["memo"]}>メモ</div>
+          <textarea
+            id="memo_text"
+            className={styles["memo_text"]}
+            value={memoValue}
+            onChange={(e) => setMemoValue(e.target.value)}
+          ></textarea>
+        </div>
         <input
-          type="text"
-          className={styles["title_text"]}
-          value={titleValue}
-          onChange={(e) => setTitleValue(e.target.value)}
+          type="button"
+          className={styles["register_btn"]}
+          value="登録"
+          onClick={() => {
+            handleRegister();
+            close();
+          }}
+        />
+        <input
+          type="button"
+          className={styles["register_btn"]}
+          value="閉じる"
+          onClick={() => {
+            if (window.confirm("本当に閉じてもいいですか？")) {
+              close();
+            }
+          }}
         />
       </div>
-      <div className={styles["memo_area"]}>
-        <div className={styles["memo"]}>メモ</div>
-        <textarea
-          id="memo_text"
-          className={styles["memo_text"]}
-          value={memoValue}
-          onChange={(e) => setMemoValue(e.target.value)}
-        ></textarea>
-      </div>
-      <input
-        type="button"
-        className={styles["register_btn"]}
-        value="登録"
-        onClick={() => {
-          handleRegister();
-          close();
-        }}
-      />
-      <input
-        type="button"
-        className={styles["register_btn"]}
-        value="閉じる"
-        onClick={() => {
-          if (window.confirm("本当に閉じてもいいですか？")) {
-            close();
-          }
-        }}
-      />
     </div>
   );
 };
