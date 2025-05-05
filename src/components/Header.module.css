@@ -8,19 +8,20 @@
   height: 90px;
 }
 
-.title{font-family: jura,sans-serif;}
+.title {
+  font-family: jura, sans-serif;
+}
 @media screen and (max-width: 400px) {
   .header-content {
     width: 100%;
     height: auto;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
     display: flex;
   }
   .logo {
     width: 90px;
     height: auto;
-    position: relative;
     top: 17px;
   }
   .title {
@@ -28,4 +29,3 @@
     font-family: jura, sans-serif;
   }
 }
-

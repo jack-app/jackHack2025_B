@@ -7,6 +7,7 @@ import AuthProvider from "./context/auth/AuthContext";
 
 import Main from "./pages/Main";
 import Signin from "./pages/Signin";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
 
           <main className="App-main">
             <Routes>
-              <Route path="/" element={<Main />} />
+              <Route path="/" element={<ProtectedRoute />} />
               <Route path="/signin" element={<Signin />} />
             </Routes>
           </main>
