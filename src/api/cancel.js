@@ -47,11 +47,9 @@ export const getCancelList = async () => {
           JSON.stringify({
             message: "キャンセルリストが取得されました",
             data: [
-              { date: new Date(2025, 4, 1), tag: "対面活動", memo: "会議" },
+              { date: new Date(2025, 4, 1), title: "ジャック", tag: "対面活動", memo: "会議" },
               {
-                date: new Date(2025, 5, 10),
-                tag: "jackhack2025",
-                memo: "風邪",
+                date: new Date(2025, 5, 10), title: "ジャック",tag: "jackhack2025",memo: "風邪",
               },
             ],
           }),

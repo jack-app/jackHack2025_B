@@ -1,56 +1,59 @@
-// ページ用のjsxファイルのテンプレート
-
-import React, { useEffect, useRef } from "react";
-import styles from "./CancelList.module.css"; // 同じフォルダにCSSファイルを作成してください
+import React, { useEffect, useState, useRef } from "react";
+import styles from "./CancelList.module.css";
 
 const CancelList = () => {
-  // このrefを使って、コンポーネント内のDOM要素にアクセスします
   const containerRef = useRef(null);
+  const [cancelItems, setCancelItems] = useState([]);
 
   useEffect(() => {
-    // ↓↓↓ここからJavaScript↓↓↓
-
-    // 呪文（containerRef.currentを使ってコンポーネント内の要素にアクセス）
     if (containerRef.current) {
-      // 例: ボタンにイベントリスナーを追加
       const button = containerRef.current.querySelector("#plus-button-id");
       if (button) {
         button.addEventListener("click", () => {
           alert("ボタンがクリックされました！");
         });
       }
-
     }
 
-    // ↑↑↑ここまでJavaScript↑↑↑
-
-    // コンポーネントがアンマウントされるときのクリーンアップ
     return () => {
-      // 必要に応じてイベントリスナーを削除するなどのクリーンアップを書く
+      if (containerRef.current) {
+        const button = containerRef.current.querySelector("#plus-button-id");
+        if (button) {
+          button.removeEventListener("click", () => {
+            alert("ボタンがクリックされました！");
+          });
+        }
+      }
     };
-  }, []); // 空の配列を渡すと、コンポーネントのマウント時に1回だけ実行されます
+  }, []);
+
+  useEffect(() => {
+    const result = {
+      message: "キャンセルリストが取得されました",
+      data: [
+        { date: new Date(2025, 4, 1), title: "ジャック", tag: "対面活動", memo: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" },
+        {
+          date: new Date(2025, 5, 10), title: "ジャック", tag: "jackhack2025", memo: "風邪",
+        },
+      ],
+    };
+    setCancelItems(result.data);
+  }, []);
 
   return (
     <div ref={containerRef} className={styles["template-container"]}>
-      {/* ↓↓↓ここからHTML↓↓↓ */}
-
-      <div className={styles["tableOutline"]}>
-        <div className={styles["cancelTable"]}>
-          <p className={styles.date}>2025年5月4日</p>
-          <div className={styles.tableDetail}>
-            <p className={styles.title}> タイトル</p>
-            <p className={styles.tag}>タグ</p>
-            <p className={styles.memo}>メモ</p>
-          </div>
+      {cancelItems.map((item, index) => (
+        <div key={index} className={styles["cell"]}>
+          <p className={styles["cellDate"]}>{item.date.toLocaleDateString()}</p>
+          <p className={styles["cellTitle"]}>{item.title}</p>
+          <p className={styles["cellTag"]}>{item.tag}</p>
+          <p className={styles["cellMemo"]}>{item.memo}</p>
+          <button id="plus-button-id" className={styles["plus-button"]}>+</button>
         </div>
-        <button id="plus-button-id" className={styles["plus-button"]}>+</button>
-      </div>
-
-
-        {/* ↑↑↑ここまでHTML↑↑↑ */}
+          
+      ))}
     </div>
   );
 };
 
-// 以下のコメントアウトを外してください。
 export default CancelList;
