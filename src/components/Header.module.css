@@ -4,7 +4,6 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
-  padding: 10px;
   height: 100%;
 }
 .logo {
@@ -13,6 +12,10 @@
 
 .title {
   font-family: jura, sans-serif;
+}
+.logout_btn:hover {
+  background-color: white;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 720px) {
@@ -30,10 +33,13 @@
     display: flex;
   }
   .logo {
-    width: 90px;
+    width: 80px;
     height: auto;
   }
   .title {
     display: none;
+  }
+  .logout_btn {
+    font-size: 10px;
   }
 }
