@@ -1,0 +1,68 @@
+.cell {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  width: 400px;
+  height: 100%;
+  position: relative;
+  width: 500px;
+  height: 100px;
+  z-index: 1;
+}
+
+.cellDate {
+  overflow-wrap: break-word;
+  z-index: 1;
+  margin: 0;
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  background-color: #bff0c3;
+  width: 100px;
+  height: 100%;
+}
+
+.cellTitle {
+  overflow-wrap: break-word;
+  z-index: 1;
+  margin: 0;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  background-color: #d9d9d9;
+}
+
+.cellTag {
+  overflow-wrap: break-word;
+  z-index: 1;
+  margin: 0;
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+  background-color: #ffcfd7;
+}
+
+.cellMemo {
+  overflow-wrap: break-word;
+  padding-right: 15%;
+  z-index: 1;
+  margin: 0;
+  grid-column: 2 / 4;
+  grid-row: 2 / 3;
+  background-color: #f9e9ed;
+}
+
+.plus-button {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 90%;
+  width: 50px;
+  height: 50px;
+  background-color: #d9d9d9;
+  border: bold;
+  border-radius: 100%;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.plus-button:hover {
+  background-color: #9a9a9a;
+}

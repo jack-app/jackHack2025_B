@@ -1,8 +1,7 @@
-import { Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
 import { useAuthContext } from "../context/auth/AuthContext";
 import { logout } from "../firebase/auth";
-import CancelList from "./CancelList";
 
 const ProtectedRoute = () => {
   const { user } = useAuthContext();

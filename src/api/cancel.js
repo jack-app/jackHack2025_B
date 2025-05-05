@@ -34,45 +34,26 @@ export const register = async (data) => {
 export const getCancelList = async () => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve({
-        status: 200,
-        ok: true,
-        json: async () => ({
-          message: "キャンセルリストが取得されました",
-          data: [
-            {
-              title: "対面活動",
-              date: new Date(2025, 4, 1),
-              tag: "対面活動",
-              memo: "会議",
-            },
-            {
-              title: "jack",
-              date: new Date(2025, 5, 10),
-              tag: "jackhack2025",
-              memo: "風邪",
-            },
-          ],
-        }),
-        text: async () =>
-          JSON.stringify({
-            message: "キャンセルリストが取得されました",
-            data: [
-              {
-                title: "対面活動",
-                date: new Date(2025, 4, 1),
-                tag: "対面活動",
-                memo: "会議",
-              },
-              {
-                title: "体調管理",
-                date: new Date(2025, 5, 10),
-                tag: "jackhack2025",
-                memo: "風邪",
-              },
-            ],
-          }),
-      });
-    }, 300);
+      resolve([
+        {
+          title: "対面活動",
+          date: new Date(2025, 4, 1),
+          tag: "対面活動",
+          memo: "会議",
+        },
+        {
+          title: "体調管理",
+          date: new Date(2025, 5, 10),
+          tag: "jackhack2025",
+          memo: "風邪",
+        },
+        {
+          title: "体調管理",
+          date: new Date(2025, 5, 10),
+          tag: "jackhack2025",
+          memo: "風邪",
+        },
+      ]);
+    }, 500);
   });
 };
