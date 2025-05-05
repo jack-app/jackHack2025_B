@@ -5,10 +5,10 @@ const Modal = () => {
   const [dateValue, setDateValue] = useState("");
   const [tagValue, setTagValue] = useState("");
   const [memoValue, setMemoValue] = useState("");
-  const [showModal, setShoModal] = useState(true); //後で初期値はfalseに変える
+  const [showModal, setShowModal] = useState(true); //後で初期値はfalseに変える
 
   const handleRegister = () => {
-    //setShoModal(false); 登録ボタン押したら非表示にする
+    setShowModal(false); //登録ボタン押したら非表示にする
     const data = {
       date: dateValue,
       tag: tagValue,
