@@ -3,12 +3,13 @@ import styles from "./Modal.module.css";
 
 const Modal = () => {
   const [dateValue, setDateValue] = useState(new Date());
-  const [tagValue, setTagValue] = useState("");
+  const [tagValue, setTagValue] = useState("タグ");
   const [memoValue, setMemoValue] = useState("");
   const [showModal, setShowModal] = useState(true); //後で初期値はfalseに変える
   const [showCalendar, setShowCalendar] = useState(false);
   const [showTag, setShowTag] = useState(false);
-
+  const [customTagValue, setCustomTagValue] = useState("");
+  const tagOptions = ["講義", "日常", "課題"];
   const handleRegister = () => {
     setShowModal(false); //登録ボタン押したら非表示にする
     const data = {
@@ -17,6 +18,16 @@ const Modal = () => {
       memo: memoValue,
     };
     console.log(data);
+  };
+  const handleTagSelect = (tag) => {
+    setTagValue(tag);
+    setShowTag(false);
+  };
+  const handleKeyDown = (e, tag) => {
+    if (e.key === "Enter") {
+      handleTagSelect(tag);
+      setCustomTagValue("");
+    }
   };
 
   if (showModal) {
@@ -39,20 +50,34 @@ const Modal = () => {
             />
           </div>
           <div className={styles["tag_area"]}>
-            <input
-              type="text"
-              id="tag"
-              className={styles["tag"]}
-              value={tagValue}
-              placeholder="タグ"
-              onChange={(e) => setTagValue(e.target.value)}
-            />
+            <div className={styles["tag"]}>{tagValue}</div>
             <input
               type="button"
               className={styles["tag_btn"]}
               value="+"
-              onClick={() => setShowTag(true)}
+              onClick={() => setShowTag(!showTag)}
             />
+            {showTag && (
+              <div className={styles["tag_list"]}>
+                {tagOptions.map((tag, index) => (
+                  <div
+                    key={index}
+                    className={styles["tag_option"]}
+                    onClick={() => handleTagSelect(tag)}
+                  >
+                    {tag}
+                  </div>
+                ))}
+                <input
+                  type="text"
+                  className={styles["custom_tag"]}
+                  value={customTagValue}
+                  placeholder="カスタム"
+                  onChange={(e) => setCustomTagValue(e.target.value)}
+                  onKeyDown={(e) => handleKeyDown(e, customTagValue)}
+                />
+              </div>
+            )}
           </div>
         </div>
         <div className={styles["memo_area"]}>
