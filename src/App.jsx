@@ -18,7 +18,7 @@ function App() {
 
           <main className="App-main">
             <Routes>
-              <Route path="/" element={<ProtectedRoute />} />
+              <Route path="/" element={<CancelList />} />
               <Route path="/signin" element={<Signin />} />
             </Routes>
           </main>
