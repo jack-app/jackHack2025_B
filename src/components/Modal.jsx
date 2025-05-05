@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Modal.module.css";
+import register from "../api/cancel";
+import DatePicker from "react-datepicker";
 
 const Modal = () => {
   const [dateValue, setDateValue] = useState(new Date());
@@ -17,7 +19,7 @@ const Modal = () => {
       tag: tagValue,
       memo: memoValue,
     };
-    console.log(data);
+    register(data);
   };
   const handleTagSelect = (tag) => {
     setTagValue(tag);
