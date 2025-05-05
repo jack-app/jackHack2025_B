@@ -1,11 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap");
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.logo{
+.logo {
   height: 90px;
-
 }
+
 .title{font-family: jura,sans-serif;}
+@media screen and (max-width: 400px) {
+  .header-content {
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+    align-items: center; 
+    display: flex;
+  }
+  .logo {
+    width: 90px;
+    height: auto;
+    position: relative;
+    top: 17px;
+  }
+  .title {
+    display: none;
+    font-family: jura, sans-serif;
+  }
+}
+

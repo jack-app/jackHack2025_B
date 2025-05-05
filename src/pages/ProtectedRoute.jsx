@@ -27,7 +27,6 @@ const ProtectedRoute = () => {
     <>
       {user ? (
         <div>
-          <CancelList />
           <button onClick={logout} style={{ marginTop: "20px" }}>
             ログアウト
           </button>
