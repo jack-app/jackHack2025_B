@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import styles from "./Modal.module.css";
-import register from "../api/cancel";
-import DatePicker from "react-datepicker";
+import { register } from "../api/cancel";
 
 const Modal = () => {
   const [dateValue, setDateValue] = useState(new Date());
   const [tagValue, setTagValue] = useState("タグ");
   const [memoValue, setMemoValue] = useState("");
+  const [titleValue, setTitleValue] = useState("");
   const [showModal, setShowModal] = useState(true); //後で初期値はfalseに変える
-  const [showCalendar, setShowCalendar] = useState(false);
   const [showTag, setShowTag] = useState(false);
   const [customTagValue, setCustomTagValue] = useState("");
   const tagOptions = ["講義", "日常", "課題"];
   const handleRegister = () => {
     setShowModal(false); //登録ボタン押したら非表示にする
     const data = {
+      title: titleValue,
       date: dateValue,
       tag: tagValue,
       memo: memoValue,
@@ -37,18 +37,14 @@ const Modal = () => {
       <div className={styles["modal_wrap"]}>
         <div className={styles["set_info"]}>
           <div className={styles["date_area"]}>
+            <div className={styles["date"]}>
+              {dateValue.toISOString().split("T")[0]}
+            </div>
             <input
               type="date"
               id="date"
-              className={styles["date"]}
-              value={dateValue}
-              onChange={(e) => setDateValue(new Date(e.target.value))}
-            />
-            <input
-              type="button"
               className={styles["date_btn"]}
-              value="+"
-              onClick={() => setShowCalendar(true)}
+              onChange={(e) => setDateValue(new Date(e.target.value))}
             />
           </div>
           <div className={styles["tag_area"]}>
@@ -81,6 +77,15 @@ const Modal = () => {
               </div>
             )}
           </div>
+        </div>
+        <div className={styles["title_area"]}>
+          <div className={styles["title"]}>タイトル</div>
+          <input
+            type="text"
+            className={styles["title_text"]}
+            value={titleValue}
+            onChange={(e) => setTitleValue(e.target.value)}
+          />
         </div>
         <div className={styles["memo_area"]}>
           <div className={styles["memo"]}>メモ</div>
