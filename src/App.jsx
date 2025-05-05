@@ -5,7 +5,6 @@ import Header from "./components/Header";
 
 import AuthProvider from "./context/auth/AuthContext";
 
-import Main from "./pages/Main";
 import Signin from "./pages/Signin";
 import ProtectedRoute from "./pages/ProtectedRoute";
 
