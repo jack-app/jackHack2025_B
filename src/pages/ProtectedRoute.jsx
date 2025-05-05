@@ -1,8 +1,7 @@
-import { Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
 import { useAuthContext } from "../context/auth/AuthContext";
-import { logout } from "../firebase/auth";
-import CancelList from "./CancelList";
+import Main from "./Main";
 
 const ProtectedRoute = () => {
   const { user } = useAuthContext();
@@ -26,11 +25,7 @@ const ProtectedRoute = () => {
   return (
     <>
       {user ? (
-        <div>
-          <button onClick={logout} style={{ marginTop: "20px" }}>
-            ログアウト
-          </button>
-        </div>
+        <Main />
       ) : (
         <Navigate to="/signin" replace>
           ログインしてないよ

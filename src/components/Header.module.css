@@ -14,6 +14,7 @@
 .title {
   font-family: jura, sans-serif;
 }
+
 @media screen and (max-width: 720px) {
   .logo {
     width: 120px;

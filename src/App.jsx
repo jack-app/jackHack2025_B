@@ -5,9 +5,8 @@ import Header from "./components/Header";
 
 import AuthProvider from "./context/auth/AuthContext";
 
-import CancelList from "./pages/CancelList";
-import ProtectedRoute from "./pages/ProtectedRoute";
 import Signin from "./pages/Signin";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 function App() {
   return (
@@ -18,7 +17,7 @@ function App() {
 
           <main className="App-main">
             <Routes>
-              <Route path="/" element={<CancelList />} />
+              <Route path="/" element={<ProtectedRoute />} />
               <Route path="/signin" element={<Signin />} />
             </Routes>
           </main>

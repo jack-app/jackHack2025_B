@@ -1,3 +1,16 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
 .modal_wrap {
   background-color: #fff7ed;
   height: 300px;
@@ -134,7 +147,7 @@
   border-radius: 10px;
   height: 25px;
   width: 250px;
-  border: solid 2px; 
+  border: solid 2px;
   position: relative;
   left: 50px;
 }
@@ -151,9 +164,4 @@
   width: 60px;
   height: 15px;
   border: solid 1px;
-}
-.tag_btn {
-  position: absolute;
-  left: 350px;
-  top: 113px;
 }

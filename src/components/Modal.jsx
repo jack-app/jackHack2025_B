@@ -2,17 +2,15 @@ import React, { useState } from "react";
 import styles from "./Modal.module.css";
 import { register } from "../api/cancel";
 
-const Modal = () => {
+const Modal = ({ isOpen, close }) => {
   const [dateValue, setDateValue] = useState(new Date());
   const [tagValue, setTagValue] = useState("タグ");
   const [memoValue, setMemoValue] = useState("");
   const [titleValue, setTitleValue] = useState("");
-  const [showModal, setShowModal] = useState(true); //後で初期値はfalseに変える
   const [showTag, setShowTag] = useState(false);
   const [customTagValue, setCustomTagValue] = useState("");
   const tagOptions = ["講義", "日常", "課題"];
   const handleRegister = () => {
-    setShowModal(false); //登録ボタン押したら非表示にする
     const data = {
       title: titleValue,
       date: dateValue,
@@ -32,9 +30,16 @@ const Modal = () => {
     }
   };
 
-  if (showModal) {
-    return (
-      <div className={styles["modal_wrap"]}>
+  if (!isOpen) {
+    return <></>;
+  }
+
+  return (
+    <div className={styles["modal-overlay"]} onClick={close}>
+      <div
+        className={styles["modal_wrap"]}
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className={styles["set_info"]}>
           <div className={styles["date_area"]}>
             <div className={styles["date"]}>
@@ -101,11 +106,24 @@ const Modal = () => {
           type="button"
           className={styles["register_btn"]}
           value="登録"
-          onClick={handleRegister}
+          onClick={() => {
+            handleRegister();
+            close();
+          }}
+        />
+        <input
+          type="button"
+          className={styles["register_btn"]}
+          value="閉じる"
+          onClick={() => {
+            if (window.confirm("本当に閉じてもいいですか？")) {
+              close();
+            }
+          }}
         />
       </div>
-    );
-  }
+    </div>
+  );
 };
 
 export default Modal;
