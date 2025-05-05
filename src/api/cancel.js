@@ -3,6 +3,7 @@
  * @property {Date} date キャンセル日
  * @property {string} tag タグ
  * @property {string} memo メモ
+ * @property {title} title タイトル
  */
 
 /*
@@ -39,16 +40,32 @@ export const getCancelList = async () => {
         json: async () => ({
           message: "キャンセルリストが取得されました",
           data: [
-            { date: new Date(2025, 4, 1), tag: "対面活動", memo: "会議" },
-            { date: new Date(2025, 5, 10), tag: "jackhack2025", memo: "風邪" },
+            {
+              title: "対面活動",
+              date: new Date(2025, 4, 1),
+              tag: "対面活動",
+              memo: "会議",
+            },
+            {
+              title: "jack",
+              date: new Date(2025, 5, 10),
+              tag: "jackhack2025",
+              memo: "風邪",
+            },
           ],
         }),
         text: async () =>
           JSON.stringify({
             message: "キャンセルリストが取得されました",
             data: [
-              { date: new Date(2025, 4, 1), tag: "対面活動", memo: "会議" },
               {
+                title: "対面活動",
+                date: new Date(2025, 4, 1),
+                tag: "対面活動",
+                memo: "会議",
+              },
+              {
+                title: "体調管理",
                 date: new Date(2025, 5, 10),
                 tag: "jackhack2025",
                 memo: "風邪",
