@@ -4,6 +4,7 @@ import "./App.css";
 import Example from "./pages/Example";
 import AuthProvider from "./context/auth/AuthContext";
 import Header from "./components/Header";
+import Modal from "./components/Modal";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <BrowserRouter basename="/jackHack2025_B">
         <div className="App">
           <Header />
+          <Modal />
 
           <main className="App-main">
             <Routes>
