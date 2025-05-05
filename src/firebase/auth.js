@@ -1,11 +1,11 @@
+import { initializeApp } from "firebase/app";
 import {
-  onAuthStateChanged as onFirebaseAuthStateChanged,
+  getAuth,
   GoogleAuthProvider,
+  onAuthStateChanged as onFirebaseAuthStateChanged,
   signInWithPopup,
   signOut,
-  getAuth,
 } from "firebase/auth";
-import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -39,7 +39,7 @@ export const onAuthStateChanged = (callback) => {
       ? {
           displayName: user?.displayName,
         }
-      : null;
+      : undefined;
     callback(userInfo);
   });
 };
