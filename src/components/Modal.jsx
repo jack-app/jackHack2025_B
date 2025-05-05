@@ -6,6 +6,8 @@ const Modal = () => {
   const [tagValue, setTagValue] = useState("");
   const [memoValue, setMemoValue] = useState("");
   const [showModal, setShoModal] = useState(true); //後で初期値はfalseに変える
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [showTag, setShowTag] = useState(false);
 
   const handleRegister = () => {
     //setShoModal(false); 登録ボタン押したら非表示にする
@@ -30,6 +32,12 @@ const Modal = () => {
               placeholder="いつ"
               onChange={(e) => setDateValue(e.target.value)}
             />
+            <input
+              type="button"
+              className={styles["date_btn"]}
+              value="+"
+              onClick={() => setShowCalendar(true)}
+            />
           </div>
           <div className={styles["tag_area"]}>
             <input
@@ -39,6 +47,12 @@ const Modal = () => {
               value={tagValue}
               placeholder="タグ"
               onChange={(e) => setTagValue(e.target.value)}
+            />
+            <input
+              type="button"
+              className={styles["tag_btn"]}
+              value="+"
+              onClick={() => setShowTag(true)}
             />
           </div>
         </div>
