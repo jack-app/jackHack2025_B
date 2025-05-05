@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./Modal.module.css";
 
 const Modal = () => {
-  const [dateValue, setDateValue] = useState("");
+  const [dateValue, setDateValue] = useState(new Date());
   const [tagValue, setTagValue] = useState("");
   const [memoValue, setMemoValue] = useState("");
   const [showModal, setShoModal] = useState(true); //後で初期値はfalseに変える
@@ -25,12 +25,11 @@ const Modal = () => {
         <div className={styles["set_info"]}>
           <div className={styles["date_area"]}>
             <input
-              type="text"
+              type="date"
               id="date"
               className={styles["date"]}
               value={dateValue}
-              placeholder="いつ"
-              onChange={(e) => setDateValue(e.target.value)}
+              onChange={(e) => setDateValue(new Date(e.target.value))}
             />
             <input
               type="button"
