@@ -77,8 +77,8 @@
 }
 
 .date_btn {
-  width: 150px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   position: relative;
   /* 日付表示部分を非表示にする場合 */
   color: transparent;
@@ -119,4 +119,41 @@
   color: black; /* ボタンのテキスト色 */
   border-radius: 4px;
   pointer-events: none; /* クリックイベントが下層に伝わるようにする */
+}
+.title {
+  background-color: #fff7ed;
+  border: none;
+  outline: none;
+  text-align: left;
+  border-radius: 10px;
+  position: relative;
+  left: 50px;
+}
+.title_text {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 25px;
+  width: 250px;
+  border: solid 2px; 
+  position: relative;
+  left: 50px;
+}
+.tag_list {
+  background-color: #bce8d9;
+  width: 70px;
+  height: 100px;
+  position: absolute;
+  left: 335px;
+  top: 135px;
+  z-index: 1;
+}
+.custom_tag {
+  width: 60px;
+  height: 15px;
+  border: solid 1px;
+}
+.tag_btn {
+  position: absolute;
+  left: 350px;
+  top: 113px;
 }
