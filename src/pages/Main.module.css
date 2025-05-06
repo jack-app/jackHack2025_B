@@ -1,0 +1,56 @@
+.plus-cancel { 
+    box-shadow: 0 0 2em #777;
+    width: 60px;  /* サイズを小さく調整 */
+    height: 60px; /* サイズを小さく調整 */
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    position: fixed;  /* 画面に固定 */
+    bottom: 20px;    /* 下からの位置 */
+    right: 20px;     /* 右からの位置 */
+}
+
+.plus-cancel:before,
+.plus-cancel:after {
+    content: '';
+    display: block;
+    background: #548687;
+    position: absolute; /* absoluteに変更 */
+    height: 30px;      /* 十字の高さを調整 */
+    width: 4px;        /* 十字の幅を調整 */
+    border-radius: 2px;
+    top: 50%;         /* 中央配置 */
+    left: 50%;        /* 中央配置 */
+    transform: translate(-50%, -50%); /* 中央揃え */
+}
+
+.plus-cancel:before,
+.plus-cancel:after {
+    content: '';
+    display: block;
+    background: #548687;
+    position: absolute;
+    height: 30px;
+    width: 4px;
+    border-radius: 2px;
+    top: 50%;
+    left: 50%;
+    transition: transform 0.3s ease; /* アニメーションを追加 */
+}
+
+.plus-cancel:before {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.plus-cancel:after {
+    transform: translate(-50%, -50%);
+}
+
+/* 選択時の回転アニメーション */
+.plus-cancel.selected:before {
+    transform: translate(-50%, -50%) rotate(225deg);
+}
+
+.plus-cancel.selected:after {
+    transform: translate(-50%, -50%) rotate(135deg);
+}
