@@ -10,7 +10,11 @@ const Header = () => {
       <div className={styles["header-content"]}>
         <img src={logo} className={styles["logo"]} />
         <h1 className={styles["title"]}>MY CANCEL</h1>
-        {user && <button onClick={logout}>ログアウト</button>}
+        {user && (
+          <button className={styles["logout_btn"]} onClick={logout}>
+            ログアウト
+          </button>
+        )}
       </div>
     </header>
   );

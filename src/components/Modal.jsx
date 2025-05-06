@@ -43,7 +43,7 @@ const Modal = ({ isOpen, close }) => {
         <div className={styles["set_info"]}>
           <div className={styles["date_area"]}>
             <div className={styles["date"]}>
-              {dateValue.toISOString().split("T")[0]}
+              {dateValue.toLocaleDateString()}
             </div>
             <input
               type="date"
@@ -76,7 +76,7 @@ const Modal = ({ isOpen, close }) => {
                   maxlength="8"
                   className={styles["custom_tag"]}
                   value={customTagValue}
-                  placeholder="8文字以内"
+                  placeholder="カスタム(8文字以内）)"
                   onChange={(e) => setCustomTagValue(e.target.value)}
                   onKeyDown={(e) => handleKeyDown(e, customTagValue)}
                 />
@@ -84,43 +84,47 @@ const Modal = ({ isOpen, close }) => {
             )}
           </div>
         </div>
-        <div className={styles["title_area"]}>
-          <div className={styles["title"]}>タイトル</div>
+        <div className={styles["input_area"]}>
+          <div className={styles["title_area"]}>
+            <div className={styles["title"]}>タイトル</div>
+            <input
+              type="text"
+              className={styles["title_text"]}
+              value={titleValue}
+              onChange={(e) => setTitleValue(e.target.value)}
+            />
+          </div>
+          <div className={styles["memo_area"]}>
+            <div className={styles["memo"]}>メモ</div>
+            <textarea
+              id="memo_text"
+              className={styles["memo_text"]}
+              value={memoValue}
+              onChange={(e) => setMemoValue(e.target.value)}
+            ></textarea>
+          </div>
+        </div>
+        <div className={styles["btns"]}>
           <input
-            type="text"
-            className={styles["title_text"]}
-            value={titleValue}
-            onChange={(e) => setTitleValue(e.target.value)}
+            type="button"
+            className={styles["register_btn"]}
+            value="登録"
+            onClick={() => {
+              handleRegister();
+              close();
+            }}
+          />
+          <input
+            type="button"
+            className={styles["register_btn"]}
+            value="閉じる"
+            onClick={() => {
+              if (window.confirm("本当に閉じてもいいですか？")) {
+                close();
+              }
+            }}
           />
         </div>
-        <div className={styles["memo_area"]}>
-          <div className={styles["memo"]}>メモ</div>
-          <textarea
-            id="memo_text"
-            className={styles["memo_text"]}
-            value={memoValue}
-            onChange={(e) => setMemoValue(e.target.value)}
-          ></textarea>
-        </div>
-        <input
-          type="button"
-          className={styles["register_btn"]}
-          value="登録"
-          onClick={() => {
-            handleRegister();
-            close();
-          }}
-        />
-        <input
-          type="button"
-          className={styles["register_btn"]}
-          value="閉じる"
-          onClick={() => {
-            if (window.confirm("本当に閉じてもいいですか？")) {
-              close();
-            }
-          }}
-        />
       </div>
     </div>
   );
