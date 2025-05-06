@@ -18,7 +18,7 @@ const CancelCard = ({ item }) => {
           setReason(reason);
         }}
       >
-        +
+        生成
       </button>
     </div>
   );
