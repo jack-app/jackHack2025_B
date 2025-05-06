@@ -14,8 +14,9 @@ const Main = () => {
   };
 
 
+
   return (
-    <div ref={containerRef} className={styles["template-container"]}>
+    <div className={styles["template-container"]}>
       <Suspense fallback={<div>Loading...</div>}>
         <CancelList />
         <Modal isOpen={isOpen} close={() => {

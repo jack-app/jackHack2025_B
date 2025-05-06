@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Modal.module.css";
 import { register } from "../api/cancel";
+import { useNavigate } from "react-router-dom";
 
 const Modal = ({ isOpen, close }) => {
   const [dateValue, setDateValue] = useState(new Date());
@@ -10,14 +11,29 @@ const Modal = ({ isOpen, close }) => {
   const [showTag, setShowTag] = useState(false);
   const [customTagValue, setCustomTagValue] = useState("");
   const tagOptions = ["講義", "日常", "課題"];
-  const handleRegister = () => {
+
+  const navigate = useNavigate();
+  const refreshPage = () => {
+    navigate(0);
+  };
+
+  const initValues = () => {
+    setDateValue(new Date());
+    setTagValue("タグ");
+    setMemoValue("");
+    setTitleValue("");
+    setShowTag(false);
+    setCustomTagValue("");
+  };
+
+  const handleRegister = async () => {
     const data = {
       title: titleValue,
       date: dateValue,
       tag: tagValue,
       memo: memoValue,
     };
-    register(data);
+    await register(data);
   };
   const handleTagSelect = (tag) => {
     setTagValue(tag);
@@ -109,20 +125,18 @@ const Modal = ({ isOpen, close }) => {
             type="button"
             className={styles["register_btn"]}
             value="登録"
-            onClick={() => {
-              handleRegister();
+            onClick={async () => {
+              await handleRegister();
+              initValues();
               close();
+              refreshPage();
             }}
           />
           <input
             type="button"
             className={styles["register_btn"]}
             value="閉じる"
-            onClick={() => {
-              if (window.confirm("本当に閉じてもいいですか？")) {
-                close();
-              }
-            }}
+            onClick={close}
           />
         </div>
       </div>
