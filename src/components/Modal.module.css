@@ -13,22 +13,34 @@
 
 .modal_wrap {
   background-color: #fff7ed;
-  height: 300px;
+  height: auto;
   width: 400px;
   box-shadow: 2px 4px 2px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  border-radius: 20px;
   overflow: hidden;
 }
 .set_info {
   display: flex;
+  height: 60px;
+}
+.input_area {
+  padding: 10px 40px 5px 40px;
+}
+.btns {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-right: 5px;
+  margin-bottom: 5px;
 }
 .date_area {
   background-color: #bce8d9;
   width: 50%;
-  height: 50px;
   align-items: center;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  padding-left: 35px;
+  padding-right: 12px;
 }
 .date {
   background-color: #bce8d9;
@@ -39,10 +51,12 @@
 .tag_area {
   background-color: #ffcfd7;
   width: 50%;
-  height: 50px;
   align-items: center;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  padding-left: 35px;
+  padding-right: 12px;
+  position: relative;
 }
 .tag {
   background-color: #ffcfd7;
@@ -50,12 +64,24 @@
   outline: none;
   text-align: center;
 }
+.tag_btn {
+  background-color: white;
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 30px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.tag_btn:hover {
+  background-color: #f5f5f5;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
 .memo_area {
   margin: auto;
-  width: 50%;
-  height: 40px;
-  position: relative;
-  top: 6px;
+  width: 100%;
 }
 .memo {
   background-color: #fff7ed;
@@ -63,38 +89,36 @@
   outline: none;
   text-align: left;
   border-radius: 10px;
-  position: relative;
-  right: 50px;
-  top: 6px;
 }
 .memo_text {
   background-color: #ffffff;
-  width: 140%;
-  height: 120px;
+  width: 100%;
+  height: 100px;
   border-radius: 10px;
-  border: solid 2px;
-  position: relative;
-  right: 50px;
-  top: 6px;
+  border: solid 1px;
 }
 .register_btn {
   width: 17%;
   height: 30px;
   background-color: #ffffff;
   border-radius: 30px;
-  box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.25);
-  position: relative;
-  top: 124px;
-  left: 300px;
+  cursor: pointer;
   font-size: 16px;
+  border: 1px solid;
 }
-
+.register_btn:hover {
+  background-color: #f5f5f5;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
 .date_btn {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   position: relative;
   /* 日付表示部分を非表示にする場合 */
   color: transparent;
+  background-color: white;
+  border-radius: 30px;
+  border: none;
 }
 
 /* カレンダーアイコンを透明化しつつ機能は保持 */
@@ -119,6 +143,7 @@
 
 /* カスタムボタンのデザイン追加 */
 .date_btn::after {
+  font-size: 20px;
   content: "+"; /* ボタンのテキスト */
   display: flex;
   align-items: center;
@@ -128,10 +153,19 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: white; /* ボタンの背景色 */
-  color: black; /* ボタンのテキスト色 */
-  border-radius: 4px;
+  background-color: white;
+  color: black;
   pointer-events: none; /* クリックイベントが下層に伝わるようにする */
+}
+.date_btn:hover {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
+.date_btn:hover::after {
+  background-color: #f5f5f5;
+}
+
+.title_area {
+  margin-bottom: 10px;
 }
 .title {
   background-color: #fff7ed;
@@ -139,29 +173,41 @@
   outline: none;
   text-align: left;
   border-radius: 10px;
-  position: relative;
-  left: 50px;
 }
 .title_text {
   background-color: #ffffff;
   border-radius: 10px;
   height: 25px;
-  width: 250px;
-  border: solid 2px;
-  position: relative;
-  left: 50px;
+  width: 100%;
+  border: solid 1px;
 }
 .tag_list {
   background-color: #bce8d9;
-  width: 70px;
+  padding: 10px;
+  /* width: 180px; */
   height: 100px;
   position: absolute;
-  left: 335px;
-  top: 135px;
+  top: 46px;
+  right: 32px;
   z-index: 1;
 }
+.tag_option {
+  border-radius: 5px;
+}
+.tag_option:hover {
+  background-color: white;
+}
 .custom_tag {
-  width: 60px;
+  width: 100%;
   height: 15px;
   border: solid 1px;
+}
+
+@media screen and (max-width: 480px) {
+  .modal_wrap {
+    width: 340px;
+  }
+  .memo_text {
+    height: 80px;
+  }
 }
