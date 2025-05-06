@@ -25,3 +25,10 @@ export const register = async (data) => {
 export const getCancelList = async () => {
   return getDB();
 };
+
+export const getCancelReason = async () => {
+  const response = await fetch("https://backend.hamashun0820.workers.dev/");
+  const data = await response.json();
+  console.log(data);
+  return data.reason;
+};

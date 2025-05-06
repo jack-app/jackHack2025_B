@@ -1,6 +1,9 @@
 import { Hono } from "hono";
+import { cors } from "hono/cors";
 
 const app = new Hono();
+
+app.use("/*", cors());
 
 const reasons: string[] = [
   "家族に急な用事ができた（例：体調不良、病院に付き添いなど）",
