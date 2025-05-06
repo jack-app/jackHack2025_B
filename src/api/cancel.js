@@ -6,54 +6,22 @@
  * @property {title} title タイトル
  */
 
-/*
-キャンセルを登録する
-@param {CancelData} data
-@returns {Promise<Response>}
+import { getDB, registerDB } from "../firebase/db";
+
+/**
+ * Helloを付与する関数です。
+ * @param {CancelData} data データ
+ * @returns {Promise<Response>} response
  */
 export const register = async (data) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      console.log("register", data);
-      resolve({
-        status: 200,
-        ok: true,
-        json: async () => ({ message: "キャンセルが登録されました", data }),
-        text: async () =>
-          JSON.stringify({ message: "キャンセルが登録されました", data }),
-      });
-    }, 300);
-  });
+  await registerDB(data);
 };
 
-/*
-キャンセルを削除する
-@param {CancelData} data
-@returns {Promise<Response>}
-*/
+/**
+ * キャンセルリストを取得する関数。
+ * @param {CancelData} data
+ * @returns {Promise<Response>}
+ */
 export const getCancelList = async () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve([
-        {
-          title: "対面活動",
-          date: new Date(2025, 4, 1),
-          tag: "対面活動",
-          memo: "会議",
-        },
-        {
-          title: "体調管理",
-          date: new Date(2025, 5, 10),
-          tag: "jackhack2025",
-          memo: "風邪",
-        },
-        {
-          title: "体調管理",
-          date: new Date(2025, 5, 10),
-          tag: "jackhack2025",
-          memo: "風邪",
-        },
-      ]);
-    }, 500);
-  });
+  return getDB();
 };
