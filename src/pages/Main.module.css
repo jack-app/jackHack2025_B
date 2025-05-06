@@ -8,6 +8,7 @@
     position: fixed;  /* 画面に固定 */
     bottom: 20px;    /* 下からの位置 */
     right: 20px;     /* 右からの位置 */
+    z-index : 1000; /* 他の要素の上に表示 */
 }
 
 .plus-cancel:before,
