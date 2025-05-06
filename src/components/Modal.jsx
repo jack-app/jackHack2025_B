@@ -92,7 +92,7 @@ const Modal = ({ isOpen, close }) => {
                   maxlength="8"
                   className={styles["custom_tag"]}
                   value={customTagValue}
-                  placeholder="カスタム(8文字以内）)"
+                  placeholder="カスタム(8文字以内)"
                   onChange={(e) => setCustomTagValue(e.target.value)}
                   onKeyDown={(e) => handleKeyDown(e, customTagValue)}
                 />

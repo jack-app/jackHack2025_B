@@ -5,6 +5,8 @@
   align-items: center;
   margin-bottom: 10px;
   height: 100%;
+  width: 100%;
+  background: linear-gradient(white, white, #fff7ed);
 }
 .logo {
   height: 90px;
