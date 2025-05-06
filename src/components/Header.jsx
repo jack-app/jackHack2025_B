@@ -11,9 +11,10 @@ const Header = () => {
         <img src={logo} className={styles["logo"]} />
         <h1 className={styles["title"]}>MY CANCEL</h1>
         {user && (
-          <button className={styles["logout_btn"]} onClick={logout}>
-            ログアウト
-          </button>
+          <div className={styles["logout_btn"]}>
+            <a onClick={logout}>ログアウト</a>
+            
+          </div>
         )}
       </div>
     </header>
