@@ -70,10 +70,12 @@
   width: 30px;
   height: 30px;
   border: none;
-  border-radius: 30px;
+  border-radius: 100%;
   font-size: 20px;
   cursor: pointer;
   color: black;
+  align-items: center;
+  text-align: center;
 }
 .tag_btn:hover {
   background-color: #f5f5f5;
@@ -208,6 +210,9 @@
 @media screen and (max-width: 480px) {
   .modal_wrap {
     width: 340px;
+  }
+  .register_btn {
+    font-size: 12px;
   }
   .memo_text {
     height: 80px;
