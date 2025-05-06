@@ -1,23 +1,36 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useRef, useState } from "react";
 import CancelList from "../components/CancelList";
 import styles from "./Main.module.css";
 import Modal from "../components/Modal";
 
 const Main = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef(null);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [isSelected, setIsSelected] = useState(false);
+
+  const handleClick = () => {
+    setIsSelected(!isSelected);
+    setIsOpen(true);
+  };
+
+
 
   return (
     <div className={styles["template-container"]}>
       <Suspense fallback={<div>Loading...</div>}>
         <CancelList />
-        <Modal isOpen={isOpen} close={() => setIsOpen(false)} />
-        <button
+        <Modal isOpen={isOpen} close={() => {
+          setIsOpen(false);
+          setIsSelected(false);
+        }}
+        />
+        <div
           id="plus-button-id"
-          className={styles["plus-button"]}
-          onClick={() => setIsOpen(true)}
+          className={`${styles["plus-cancel"]} ${isSelected ? styles["selected"] : ""}`}
+          onClick={handleClick}
         >
-          +
-        </button>
+          
+        </div>
       </Suspense>
     </div>
   );
