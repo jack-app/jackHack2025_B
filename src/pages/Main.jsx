@@ -1,14 +1,13 @@
-import React, { Suspense, useRef } from "react";
+import React, { Suspense, useState } from "react";
 import CancelList from "../components/CancelList";
 import styles from "./Main.module.css";
 import Modal from "../components/Modal";
 
 const Main = () => {
-  const containerRef = useRef(null);
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div ref={containerRef} className={styles["template-container"]}>
+    <div className={styles["template-container"]}>
       <Suspense fallback={<div>Loading...</div>}>
         <CancelList />
         <Modal isOpen={isOpen} close={() => setIsOpen(false)} />
