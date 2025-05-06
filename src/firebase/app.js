@@ -1,13 +1,13 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+  apiKey: "AIzaSyCNi424DjkLOe0bzwKDmdHxN5PPf0-_5gw",
+  authDomain: "cancel-app-22c91.firebaseapp.com",
+  projectId: "cancel-app-22c91",
+  storageBucket: "cancel-app-22c91.firebasestorage.app",
+  messagingSenderId: "143629046694",
+  appId: "1:143629046694:web:b83f99f73a3466793c7567",
+  measurementId: "G-KSGGB2XD47",
 };
 
 export const app = initializeApp(firebaseConfig);
